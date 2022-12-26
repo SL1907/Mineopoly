@@ -1,57 +1,31 @@
 package com.github.sl1907.mineopoly;
 
-import com.github.sl1907.mineopoly.structure.MineopolySet;
-import com.github.sl1907.mineopoly.structure.tiles.MineopolyProperty;
+import co.aikar.commands.PaperCommandManager;
+import com.github.sl1907.mineopoly.commands.MineopolyCommand;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.lucko.helper.Commands;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public final class Mineopoly extends JavaPlugin {
 
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    @Getter private static Mineopoly instance;
+    @Getter private PaperCommandManager commandManager;
+    @Getter private MineopolySetManager setManager;
 
     @Override
     public void onEnable() {
-        Commands.create()
-                .assertPlayer()
-                .handler(c -> {
-                    InputStream resource = this.getResource("london.json");
+        instance = this;
 
-                    if (resource == null) {
-                        c.sender().sendMessage(Component.text("An error occurred while loading the set.", NamedTextColor.RED));
-                        return;
-                    }
+        this.commandManager = new PaperCommandManager(this);
+        this.setManager = new MineopolySetManager();
 
-                    MineopolySet mineopolySet = this.readJson(resource);
-                    if (mineopolySet == null) {
-                        c.sender().sendMessage(Component.text("An error occurred.", NamedTextColor.RED));
-                        return;
-                    }
-
-                    c.sender().sendMessage(Component.text("Loaded set %s successfully.".formatted(mineopolySet.getName()), NamedTextColor.GREEN));
-                    for (MineopolyProperty property : mineopolySet.getProperties()) {
-                        c.sender().sendMessage(Component.text(
-                                "%s | %s %s".formatted(property.getId(), property.getName(), Arrays.toString(property.getPos1())),
-                                NamedTextColor.AQUA
-                        ));
-                    }
-                })
-                .register("mineopoly");
-    }
-
-    private MineopolySet readJson(InputStream stream) {
-        InputStreamReader reader = new InputStreamReader(stream);
-        return GSON.fromJson(reader, MineopolySet.class);
+        this.commandManager.registerCommand(new MineopolyCommand());
     }
 
     @Override
     public void onDisable() {
+        instance = null;
     }
 }
