@@ -3,5 +3,5 @@ version: '${project.version}'
 main: com.github.sl1907.mineopoly.Mineopoly
 api-version: 1.19
 authors: [ SL1907 ]
-description: Monopoly in Minecraft! Just as long as the real thing. If not longer.
+description: Monopoly in Minecraft! Just as long as the real thing. If not, longer.
 website: https://sl1907.codes/projects/mineopoly
