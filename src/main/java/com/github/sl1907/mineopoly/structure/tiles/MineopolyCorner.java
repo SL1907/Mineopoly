@@ -1,12 +1,9 @@
 package com.github.sl1907.mineopoly.structure.tiles;
 
-import lombok.Getter;
+import com.github.sl1907.mineopoly.structure.MineopolyTile;
 
-public class MineopolyCorner {
+public class MineopolyCorner extends MineopolyTile {
 
-    @Getter private String id;
-    @Getter private String name;
-    @Getter private int[] pos1;
-    @Getter private int[] pos2;
+    // TODO: Add action for on land.
 
 }

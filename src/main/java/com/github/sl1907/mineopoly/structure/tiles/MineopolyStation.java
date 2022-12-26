@@ -1,13 +1,12 @@
 package com.github.sl1907.mineopoly.structure.tiles;
 
+import com.github.sl1907.mineopoly.structure.MineopolyTile;
+import com.github.sl1907.mineopoly.structure.Purchasable;
 import lombok.Getter;
 
-public class MineopolyStation {
+public class MineopolyStation extends MineopolyTile implements Purchasable {
 
-    @Getter private String id;
-    @Getter private String name;
-    @Getter private int[] pos1;
-    @Getter private int[] pos2;
+    @Getter private int price;
     @Getter private int[] rent;
 
 }
