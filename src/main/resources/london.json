@@ -1,0 +1,128 @@
+{
+    "name": "London",
+    "country": "United Kingdom",
+    "currency": "£",
+
+    "corners": [
+        {
+            "id": "GO",
+            "pos1": [-23, -60, 23],
+            "pos2": [-19, -58, 19]
+        },
+        {
+            "id": "FRP",
+            "pos1": [23, -60, -23],
+            "pos2": [19, -58, 19]
+        },
+        {
+            "id": "GTJ",
+            "pos1": [23, -60, -23],
+            "pos2": [19, -58, 19]
+        }
+    ],
+    "properties": [
+        {
+            "id": "BR1",
+            "name": "Old Kent Road",
+            "pos1": [-23, -60, 15],
+            "pos2": [-19, -58, 17],
+            "price": 60,
+            "rent": {
+                "default": 0,
+                "colourSet": 0,
+                "house1": 0,
+                "house2": 0,
+                "house3": 0,
+                "house4": 0,
+                "mortgage": 0
+            }
+        },
+        {
+            "id": "BR2",
+            "name": "Whitechapel Road",
+            "pos1": [-23, -60, 7],
+            "pos2": [-19, -58, 9],
+            "price": 60,
+            "rent": {
+                "default": 0,
+                "colourSet": 0,
+                "house1": 0,
+                "house2": 0,
+                "house3": 0,
+                "house4": 0,
+                "mortgage": 0
+            }
+        },
+        {
+            "id": "LB1",
+            "name": "The Angel, Islington",
+            "pos1": [-23, -60, -5],
+            "pos2": [-19, -58, -3],
+            "price": 100,
+            "rent": {
+                "default": 0,
+                "colourSet": 0,
+                "house1": 0,
+                "house2": 0,
+                "house3": 0,
+                "house4": 0,
+                "mortgage": 0
+            }
+        },
+        {
+            "id": "LB2",
+            "name": "Euston Road",
+            "pos1": [-23, -60, -13],
+            "pos2": [-19, -58, -11],
+            "price": 100,
+            "rent": {
+                "default": 0,
+                "colourSet": 0,
+                "house1": 0,
+                "house2": 0,
+                "house3": 0,
+                "house4": 0,
+                "mortgage": 0
+            }
+        },
+        {
+            "id": "LB3",
+            "name": "Pentonville Road",
+            "pos1": [-23, -60, -17],
+            "pos2": [-19, -58, -25],
+            "price": 120,
+            "rent": {
+                "default": 0,
+                "colourSet": 0,
+                "house1": 0,
+                "house2": 0,
+                "house3": 0,
+                "house4": 0,
+                "mortgage": 0
+            }
+        }
+    ],
+    "stations": [
+        {
+            "id": "ST1",
+            "name": "King's Cross Station",
+            "pos1": [-23, -60, -1],
+            "pos2": [-19, -58, 1],
+            "rent": {
+                "stations1": 0,
+                "stations2": 0,
+                "stations3": 0,
+                "stations4": 0
+            }
+        }
+    ],
+    "taxes": [
+        {
+            "id": "TX1",
+            "name": "Income Tax",
+            "price": 200,
+            "pos1": [-23, -60, 3],
+            "pos2": [-19, -58, 5]
+        }
+    ]
+}
