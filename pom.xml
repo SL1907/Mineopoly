@@ -13,7 +13,7 @@
 
     <description>Monopoly in Minecraft! Just as long as the real thing. If not longer.</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <url>https://sl1907.codes/projects/mineopoly</url>
@@ -76,6 +76,12 @@
             <groupId>me.lucko</groupId>
             <artifactId>helper</artifactId>
             <version>5.6.13</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
