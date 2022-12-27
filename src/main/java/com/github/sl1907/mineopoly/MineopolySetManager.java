@@ -3,9 +3,12 @@ package com.github.sl1907.mineopoly;
 import com.github.sl1907.mineopoly.structure.MineopolySet;
 import com.github.sl1907.mineopoly.structure.MineopolyTile;
 import com.github.sl1907.mineopoly.structure.Purchasable;
+import com.github.sl1907.mineopoly.structure.tiles.MineopolyCard;
 import com.github.sl1907.mineopoly.utils.MineopolyTileColor;
 import com.github.sl1907.mineopoly.utils.MineopolyTileRegion;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.Style;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
@@ -52,18 +55,22 @@ public class MineopolySetManager {
         MineopolySet mineopolySet = this.currentSet.get();
 
         for (MineopolyTile tile : mineopolySet.getAllTiles()) {
-            this.spawnHologram(tile.getName(), tile.getId(), tile.getRegion().getCenter().add(0.5, 0, 0.5));
+            this.spawnHologram(tile, tile.getName(), tile.getRegion().getCenter().add(0.5, 0, 0.5));
             if (tile instanceof Purchasable pTile) {
                 String currency = mineopolySet.getCurrency();
                 int price = pTile.getPrice();
-                this.spawnHologram("%s%s".formatted(currency, price), tile.getId(), tile.getRegion().getCenter().add(0.5, -0.25, 0.5));
+                this.spawnHologram(tile, "%s%s".formatted(currency, price), tile.getRegion().getCenter().add(0.5, -0.25, 0.5));
             }
         }
     }
 
-    private void spawnHologram(String displayName, String tileId, Location location) {
+    private void spawnHologram(MineopolyTile tile, String displayName, Location location) {
         ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location.add(0, 2, 0), EntityType.ARMOR_STAND);
-        armorStand.customName(Component.text(displayName, MineopolyTileColor.getColorById(tileId)));
+        if (tile instanceof MineopolyCard) {
+            armorStand.customName(Component.text(displayName, Style.style(MineopolyTileColor.getColorById(tile.getId()), TextDecoration.BOLD)));
+        } else {
+            armorStand.customName(Component.text(displayName, MineopolyTileColor.getColorById(tile.getId())));
+        }
         armorStand.setInvisible(true);
         armorStand.setCustomNameVisible(true);
         armorStand.setGravity(false);
