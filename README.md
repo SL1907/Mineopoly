@@ -16,7 +16,7 @@ There will also be a repository of some base threads which can be found on my we
 
 ## Installation
 
-The installation for Mineopoly is much the same as any other plugin. \
+The installation for Mineopoly is much the same as any other plugin. 
 1. Download the plugin.
 2. Add it to your server `plugins` directory.
 3. Download the Mineopoly map.
