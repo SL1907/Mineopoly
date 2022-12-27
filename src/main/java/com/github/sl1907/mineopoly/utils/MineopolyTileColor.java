@@ -11,7 +11,9 @@ public enum MineopolyTileColor {
     RED(TextColor.color(143, 33, 33)),
     YELLOW(TextColor.color(239, 174, 21)),
     GREEN(TextColor.color(74, 92, 37)),
-    DARK_BLUE(TextColor.color(45, 47, 144));
+    DARK_BLUE(TextColor.color(45, 47, 144)),
+    STATION(TextColor.color(126, 126, 116)),
+    TAX(TextColor.color(21, 119, 136));
 
     private final TextColor color;
 
@@ -22,13 +24,15 @@ public enum MineopolyTileColor {
     public static TextColor getColorById(String id) {
         return switch (id.replaceAll("\\d","")) {
             case "BR" -> BROWN.getColor();
-            case "LB" -> LIGHT_BLUE.getColor();
+            case "LB", "CC" -> LIGHT_BLUE.getColor();
             case "PK" -> PINK.getColor();
-            case "OR" -> ORANGE.getColor();
+            case "OR", "CH" -> ORANGE.getColor();
             case "RE" -> RED.getColor();
             case "YL" -> YELLOW.getColor();
             case "GR" -> GREEN.getColor();
             case "DB" -> DARK_BLUE.getColor();
+            case "ST" -> STATION.getColor();
+            case "TX" -> TAX.getColor();
             default -> TextColor.color(54, 57, 61);
         };
     }
